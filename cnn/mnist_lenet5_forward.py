@@ -79,4 +79,4 @@ def forward(x, train, regularizer):
     fc2_b = get_bias([OUTPUT_NODE])
     # 将转化后的reshaped向量和权重fc2_w做矩阵乘法运算，然后再加上偏置
     y = tf.matmul(fc1, fc2_w) + fc2_b
-    return y 
+    return y#,[conv1_w, conv1_b, conv2_w, conv2_b, fc1_w, fc1_b, fc2_w, fc2_b]

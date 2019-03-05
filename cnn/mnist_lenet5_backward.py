@@ -13,7 +13,7 @@ REGULARIZER = 0.0001 #
 STEPS = 50000 #最大迭代次数
 MOVING_AVERAGE_DECAY = 0.99 #滑动平均衰减率
 MODEL_SAVE_PATH="./model/"
-MODEL_NAME="mnist_model"
+MODEL_NAME="./mnist_model"
 train_num_examples = 2000#2
 
 def backward():
@@ -77,7 +77,7 @@ def backward():
         threads = tf.train.start_queue_runners(sess=sess, coord=coord)  # 5
         for i in range(STEPS):
             xs, ys = sess.run([img_batch, label_batch])  # 6
-            print(xs)
+
             #读取一个batch数据，将输入数据xs转成与网络输入相同形状的矩阵
             #xs, ys = mnist.train.next_batch(BATCH_SIZE)
             reshaped_xs = np.reshape(xs,(

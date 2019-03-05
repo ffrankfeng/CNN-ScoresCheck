@@ -31,7 +31,6 @@ def write_tfRecord(tfRecordName, image_path, label_path):
         img_raw = img.tobytes()
         labels = [0] * 20
         labels[int(value[1])] = 1
-        print(labels)
         # 把每张图片和标签分装到example中
         example = tf.train.Example(features=tf.train.Features(feature={
             'img_raw': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_raw])),
