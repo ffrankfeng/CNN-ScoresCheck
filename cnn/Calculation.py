@@ -27,7 +27,7 @@ def stepRun(i,max,step):
         stepRun(i-1,max,step)
 def calculation(ans,index):
     ans = numpy.array(ans)
-    print(ans)
+
     dimension = ans.shape
     step = [0 for i in range(dimension[0] - 1)]
     x = 0
@@ -37,8 +37,7 @@ def calculation(ans,index):
             count += ans[i][step[i]][0]
             isExistReturn = isExist(count, ans[dimension[0] - 1])
         if isExistReturn>-1:
-            print("deng")
-            print(step,isExistReturn)
+
             for i in range(len(step)):
                 index[x][i] = step[i]
             index[x][i+1] = isExistReturn

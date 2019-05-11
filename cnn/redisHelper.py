@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 import redis
-
+from config import config
 
 # redis工具类
 class RedisHelper(object):
-    def __init__(self):
-        self.__conn = redis.Redis(host="10.166.33.86",port=6379)#连接Redis
+    def __init__(self): #10.166.33.86
+        self.__conn = redis.Redis(host=config.REDIS_IP,port=config.REDIS_PORT)#连接Redis
         self.channel = '' #定义名称
 
     def rpush(self,name,values):
