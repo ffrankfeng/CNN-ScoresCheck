@@ -1,0 +1,4 @@
+jdk1.8
+maven
+tomcat8
+opencv: https://www.cnblogs.com/qjmnong/p/10023964.html(编译opencv[centos])

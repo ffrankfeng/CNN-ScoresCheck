@@ -1,0 +1,33 @@
+1、系统环境：
+1)java1.8
+2)python3.6
+3)redis3.0.0
+
+2、pretreatment系统：
+	1)安装必要的运行环境，见requirements.txt
+	2)准备工作
+		* 把opencv的jar包发布到本地仓库：https://www.cnblogs.com/qjmnong/p/10067314.html
+		* 修改系统的一些环境变量 stitp/src/main/java/cn.edu.njupt/configure/SystemVariables.java
+		* 替换web的请求路径 src/main/webapp/js/index.js；一般都需要在路径前面加上项目名[具体要看你项目是如何发布的，是直接发布到8080端口，还是带上项目名]
+	3)打包项目
+		* mvn install -Dmaven.test.skip=true
+	4)发布项目
+		* 把打包好的项目war包，移动到tomcat的webapp目录下即可，通过url即可访问
+
+	注意：url的访问需要开放指定的端口号
+	这里附上打包的shell脚本[可根据实际情况调整]
+	///////////////////////
+	cd ../stitp/
+	pwd
+	mvn install -Dmaven.test.skip=true
+	mv /usr/local/src/javacode/stitp/target/stitp.war /usr/local/src/tomcat/tomcat8/apache-tomcat-8.5.37/webapps/
+	echo "SUCCESS"
+	///////////////////////
+
+3、lenet5系统：
+	1)安装必要的运行环境，见config/requirements.txt
+	2)修改config/config.py中的环境变量：
+		项目根路径PROJECT_PATH
+		redis的IP和端口号REDIS_IP,REDIS_PORT
+	3)启动服务器程序requestServer.py
+	附：请求服务器的客户端demo是test/clientDemo.py，启动服务器requestServer后，在clientDemo.py中修改服务器ip，直接运行即可。
