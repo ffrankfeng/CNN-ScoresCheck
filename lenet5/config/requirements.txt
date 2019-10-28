@@ -4,4 +4,3 @@
 
 Flask==1.0.2
 redis==2.10.6
-tensorflow==1.8.0
